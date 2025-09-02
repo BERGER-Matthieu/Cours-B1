@@ -5,7 +5,7 @@
 - Créez vous un **compte github** (logiciel moderne basé sur git).
 - Créez votre premier **répo** depuis github.
 - Clonez le répo sur votre pc (via la console bash de vscode/vscodium).
-    >dans ```reponse.txt```, mettez les 3 commandes a faire pour clone un répo.
+    >dans ```reponse.txt```, mettez la commande a faire pour clone un répo.
 
 # Partie 2
 - Créez un fichier ```hello.sh```.
@@ -21,4 +21,5 @@
 - Une fois le fichier "filtre" créé, remplisez le pour que ```hello.sh``` ne soit plus envoyé quand on push.
     > Dans ```reponse.txt```, quavez vous ajouté pour filtrer ```hello.sh```.
     
+
     > ⭐BONUS⭐ <br>Dans ```reponse.txt```, le fichier "filtre" ne marche pas si le document filtré a déja été envoyé par le passé. quel sont les 2 commandes pour **unstage** le fichier du répo local et **retirer** le fichier du répo distant.
