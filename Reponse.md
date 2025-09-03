@@ -8,3 +8,9 @@
 	git add .
 	git commit -m "message"
 	git push
+
+# PARTIE 3
+	.gitignore
+	
+	git reset hello.sh
+	git rm --cached hello.sh
