@@ -1,0 +1,23 @@
+# Quest_5
+
+- firstrune *required*
+- lastrune *required*
+- nrune *required*
+- compare *required*
+- alphacount *required*
+- index *required*
+- concat *required*
+- isupper *required*
+- islower *required*
+- isalpha *required*
+- isnumeric *required*
+- isprintable *required*
+- toupper *required*
+- tolower *required*
+- printnbrinorder *required*
+- trimatoi *required*
+- capitalize *required*
+- basicjoin *optionnal*
+- join *optionnal*
+- printnbrbase *bonus*
+- atoibase *bonus*
