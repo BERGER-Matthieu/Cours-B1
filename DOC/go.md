@@ -1,132 +1,198 @@
 # DOCUMENTATION GO
 
 ## Syntaxe
-Le go nécésite une syntaxe qui nécésite un ordre précis dans le code pour fonctionner :
-
+Le Go nécessite une syntaxe dans un ordre précis dans le code pour fonctionner :
 1. **déclaration de package**
-2. **import de packages** (optionel)
+2. **import de packages** (optionnel)
 3. **fonction(s)**
-4. **exprésion(s)**
+4. **expression(s)**
 
 ```go
 package main //déclaration de package
-
 import "fmt" //import de packages
-
-func main() { //fonction (dans ce cas une seul)
-
-    //exprésion (en gros le code)
+func main() { //fonction (dans ce cas une seule)
+    //expression (en gros le code)
     name := "John Doe"
     fmt.Println(name)
 }
 ```
 
 > [!IMPORTANT]
-> Retenez la syntaxe de tout ca pour les éxams
+> Retenez la syntaxe de tout ça pour les examens
 
 ---
-### déclaration de package
-Un package est comme une boite a outils vous permetant de facilement importer et exporter vos fonctions entre diférents projets. 
 
-Vous pouvez préciser dans quelle boite grace a la ligne ...
+### Déclaration de package
+Un package est comme une boîte à outils vous permettant de facilement importer et exporter vos fonctions entre différents projets. 
+Vous pouvez préciser dans quelle boîte grâce à la ligne...
+
 ```go
-package main //dans ce cas tout le code ira dans la boite a outil "main"
+package main //dans ce cas tout le code ira dans la boîte à outils "main"
 ```
 
-Cependant il y a une différence entre le package ```main``` et tout les autre.<br>
-Le package main est réservé pour du code qui va etre éxécuté (go run nom_du_fichié.go).<br>
-La ou les autres sont prévue pour etre importé.
+Cependant il y a une différence entre le package `main` et tous les autres.<br>
+Le package main est réservé pour du code qui va être exécuté (`go run nom_du_fichier.go`).<br>
+Là où les autres sont prévus pour être importés.
 
 > [!IMPORTANT]
-> Deux fichier go avec des package différents ne peuvent pas etre dans le meme dossier.
+> Deux fichiers go avec des packages différents ne peuvent pas être dans le même dossier.
 
 ---
 
-### import de package
-
-Une fois qu'un package a été créé il peut etre importé dans d'autre fichiers pour être utiliser.<br>
-Dans l'éxemple du début un package est importé a la ligne ...
+### Import de package
+Une fois qu'un package a été créé, il peut être importé dans d'autres fichiers pour être utilisé.<br>
+Dans l'exemple du début, un package est importé à la ligne...
 
 ```go
 import "fmt"
 ```
 
-dans ce cas le package ```fmt``` offre la possibilité a go d'intéragire avec le terminal.
+Dans ce cas, le package `fmt` offre la possibilité à Go d'interagir avec le terminal.
 
 ---
 
-### fonction
-
-Une fonction permet de donner un nom a une partie de code pour pouvoir le réutiliser plus tard.
-
+### Fonction
+Une fonction permet de donner un nom à une partie de code pour pouvoir la réutiliser plus tard.
 Il existe 2 types de fonctions :
-
-- Les fonctions créées par l'utilisateur (comme vous faites tout au long de la piscine).
-- Les fonctions déja éxistantes dans le language (built-in), comme par exemple la fonction ```len()``` qui permet de recuperer la longeur d'une string.
+- Les fonctions créées par l'utilisateur (comme vous le faites tout au long de la piscine).
+- Les fonctions déjà existantes dans le langage (built-in), comme par exemple la fonction `len()` qui permet de récupérer la longueur d'une string.
 
 Exemple de fonction :
-
 ```go
-func simpleAdder(a int, b int) int { //la fonction "simpleAdder" prend 2 parametre, a (int) et b (int) et retournera un nouveau int
+func simpleAdder(a int, b int) int { //la fonction "simpleAdder" prend 2 paramètres, a (int) et b (int) et retournera un nouveau int
     return a + b
 }
-
 a := 1
 b := 2
+c := simpleAdder(a, b) //dans ce cas la variable c sera égale à 3
+```
 
-c := simpleAdder(a, b) //dans ce cas la variable c sera égale a 3
+#### Fonctions récursives
+Une fonction peut s'appeler elle-même, dans ce cas elle est dite récursive.
+
+```go
+func factorial(n int) int {
+    if n <= 1 {
+        return 1
+    }
+    return n * factorial(n-1) //la fonction s'appelle elle-même
+}
+
+result := factorial(5) //result sera égal à 120 (5 * 4 * 3 * 2 * 1)
 ```
 
 > [!IMPORTANT]
-> Une fonction peut etre appelé en elle meme, dans ce cas elle est dite récursive.
-
-> [!IMPORTANT]
-> La fonction main() sera démaré automatiquement quand un fichier est éxecuté.
+> La fonction main() sera démarrée automatiquement quand un fichier est exécuté.
 
 ---
 
-### exprésion
-
-L'éxprésion est le code en lui meme.
-
+### Expression
+L'expression est le code en lui-même.
 Elle est composée de :
-
 - Variables
 - Boucles
-- Return (optionel)
+- Return (optionnel)
 - Fonctions
 
 ---
 
-#### variable
-
+#### Variable
 Une variable permet de stocker une valeur.
-
 Il existe plusieurs types de variables :
-- int (nbr entier)
-- float (nbr decimal)
+- int (nombre entier)
+- float (nombre décimal)
 - bool (booléen)
-- string (chaine de character)
-- rune (character unique)
+- string (chaîne de caractères)
+- rune (caractère unique)
 
-Et une variable peu etre déclarée de plusieurs manieres.
+Et une variable peut être déclarée de plusieurs manières.
 
 ```go
-maString := "chaine de character" //le := permet de creer la variable et de stocker la valeur directement
-maRune := 'a' //selon le format de la variable elle choisirat le bon type (entre "" pour string, entre '' pour rune, si il y a un chiffre int, si il y a une virgule float ...)
-
-var maFloat float //si le mot clef var est utilisé la variable est crée mais vide (int = 0, string = "", bool = false...)
-maFloat = 7.2 //puis une valeur peut lui etre atribué plus tard avec le signe =
-
-var a, b, c int //on peut en déclarer plusieurs du meme type
-var ( //ou de differents types
+maString := "chaîne de caractères" //le := permet de créer la variable et de stocker la valeur directement
+maRune := 'a' //selon le format de la variable elle choisira le bon type (entre "" pour string, entre '' pour rune, si il y a un chiffre int, si il y a une virgule float...)
+var maFloat float64 //si le mot-clef var est utilisé la variable est créée mais vide (int = 0, string = "", bool = false...)
+maFloat = 7.2 //puis une valeur peut lui être attribuée plus tard avec le signe =
+var a, b, c int //on peut en déclarer plusieurs du même type
+var ( //ou de différents types
     x int
-    y float
+    y float64
     z bool
 )
 ```
-> [!IMPORTANT]
-> Retenez la syntaxe de tout ca pour les éxams
 
 ---
 
+#### Return
+Le mot-clef `return` permet de retourner une valeur depuis une fonction et d'arrêter son exécution.
+
+```go
+func divide(a, b int) int {
+    if b == 0 {
+        return 0 //arrête la fonction et retourne 0
+    }
+    return a / b //retourne le résultat de la division
+}
+```
+
+Une fonction peut retourner plusieurs valeurs :
+```go
+func divideWithRemainder(a, b int) (int, int) {
+    quotient := a / b
+    remainder := a % b
+    return quotient, remainder //retourne deux valeurs
+}
+
+q, r := divideWithRemainder(10, 3) //q = 3, r = 1
+```
+
+---
+
+#### Boucles
+
+Go propose deux types de boucles principales :
+
+##### Boucle for (équivalent du while et for classique)
+```go
+// Boucle for classique
+for i := 0; i < 5; i++ {
+    fmt.Println(i) //affiche 0, 1, 2, 3, 4
+}
+
+// Boucle while (utilise for sans initialisation ni incrément)
+i := 0
+for i < 5 {
+    fmt.Println(i)
+    i++
+}
+
+// Boucle infinie
+for {
+    fmt.Println("Boucle infinie")
+    break //utiliser break pour sortir de la boucle
+}
+
+// Boucle sur une string ou un slice
+name := "Go"
+for index, character := range name {
+    fmt.Printf("Index: %d, Character: %c\n", index, character)
+}
+```
+
+##### Mot-clefs de contrôle de boucle
+```go
+for i := 0; i < 10; i++ {
+    if i == 3 {
+        continue //passe à l'itération suivante
+    }
+    if i == 7 {
+        break //sort de la boucle
+    }
+    fmt.Println(i) //affiche 0, 1, 2, 4, 5, 6
+}
+```
+
+> [!IMPORTANT]
+> Go n'a pas de boucle `while` traditionnelle, mais utilise `for` pour tous les types de boucles.
+
+> [!IMPORTANT]
+> Retenez la syntaxe de tout ça pour les examens
