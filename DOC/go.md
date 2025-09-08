@@ -1,7 +1,7 @@
 # DOCUMENTATION GO
 
 ## Syntaxe
-Le Go nécessite une syntaxe dans un ordre précis dans le code pour fonctionner :
+Le Go nécessite une syntaxe qui nécessite un ordre précis dans le code pour fonctionner :
 1. **déclaration de package**
 2. **import de packages** (optionnel)
 3. **fonction(s)**
@@ -119,6 +119,47 @@ var ( //ou de différents types
     z bool
 )
 ```
+
+##### Index dans les variables
+Certaines variables peuvent être indexées pour accéder à leurs éléments individuels :
+
+**String (chaîne de caractères) :**
+```go
+maString := "Hello"
+premierCaractere := maString[0] //récupère le premier caractère (H)
+deuxiemeCaractere := maString[1] //récupère le deuxième caractère (e)
+fmt.Println(premierCaractere) //affiche 72 (valeur ASCII de 'H')
+fmt.Printf("%c", premierCaractere) //affiche H
+```
+
+**Array (tableau) :**
+```go
+monArray := [5]int{10, 20, 30, 40, 50}
+premierElement := monArray[0] //récupère 10
+dernierElement := monArray[4] //récupère 50
+monArray[2] = 35 //modifie le troisième élément (30 devient 35)
+```
+
+**Slice (tranche) :**
+```go
+monSlice := []string{"Go", "Python", "Java"}
+premierLangage := monSlice[0] //récupère "Go"
+monSlice[1] = "JavaScript" //modifie "Python" en "JavaScript"
+```
+
+**Plages d'index :**
+```go
+maString := "Bonjour"
+sousChaine := maString[1:4] //récupère "onj" (de l'index 1 à 3)
+debut := maString[:3] //récupère "Bon" (du début à l'index 2)
+fin := maString[3:] //récupère "jour" (de l'index 3 à la fin)
+
+monSlice := []int{1, 2, 3, 4, 5}
+portion := monSlice[1:4] //récupère [2, 3, 4]
+```
+
+> [!IMPORTANT]
+> Les index commencent toujours à 0 en Go. Le premier élément est à l'index 0, le deuxième à l'index 1, etc.
 
 ---
 
